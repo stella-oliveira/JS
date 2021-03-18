@@ -1,0 +1,60 @@
+* {
+	margin: 0;
+	padding: 0;
+	width: auto;
+}
+
+body {
+	font-family: Arial;
+	padding: 30px;
+	max-width: 80%;
+	color: #FFF;
+	background-color: #000;
+}
+
+h3 {
+	margin: 20px;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+input {
+	padding: 5px 10px;
+	background-color: #FFF;
+	border: 1px solid #000;
+	border-radius: 5px;
+	width: 10;
+}
+
+button {
+	background-color: #000;
+	padding: 5px 15px;
+	border: 1px solid #FFF;
+	border-radius: 5px;
+	text-transform: uppercase;
+	font-weight: bold;
+	width: 10%;
+}
+
+#res1, #res2, #res3, #res4, #res4-1, #res5, #res5-1, #res5-2, #res6, #res6-1, #res6-2, #res7, #res8, #res9, #res10,
+#resultado, #media, #totalpreco, #quociente, #resto, #area, #volume, #soma, #produto, #divisao, #somapa {
+	display: inline;
+	font-weight: bold;
+}
+
+#aprovado {
+	display: block;
+}
+
+.um { color: #ed4300; font-weight: bold; }
+.dois { color: #eda200; font-weight: bold; }
+.tres { color: #ede100; font-weight: bold; }
+.quatro { color: #27ed00; font-weight: bold; }
+.cinco { color: #00EDDF; font-weight: bold; }
+.seis { color: #0091ED; font-weight: bold; }
+.sete { color: #707FF2; font-weight: bold; }
+.oito { color: #A170F2; font-weight: bold; }
+.nove { color: #F270E4; font-weight: bold; }
+.dez { color: #D2D2D2; font-weight: bold; }

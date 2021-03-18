@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+        <title>Atividade 1</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+      
+    <body>
+
+        <!-- QUESTÃO 1 -->
+        <h3 class="um">1. Leia um número e exiba seu sucessor.</h3>
+        
+        <form id="form1">
+            <p>Digite um número: <input type="text" id="num"></p>
+            <button class="um" type="button" onclick="exibirSucessor()">Resultado</button>
+            <input type="button" onclick="resetForm1()" value="LIMPAR"><br /><br />  
+            <div id="res1"></div><div id="resultado"></div>
+        </form>
+
+        <script>
+            function exibirSucessor() {
+                var a = parseInt(document.querySelector("#num").value);
+                document.getElementById("res1").style.display = "inline";
+                document.getElementById("res1").innerHTML = "O sucessor é ";
+                document.getElementById("resultado").style.display = "inline";
+                document.querySelector("#resultado").innerHTML = a + 1;
+            }
+
+            function resetForm1() {
+                document.getElementById("form1").reset();
+                document.getElementById("res1").style.display = "none";
+                document.getElementById("resultado").style.display = "none";
+            }
+        </script>
+
+        <!-- QUESTÃO 2 -->
+        <h3 class="dois">2. Calcular a média final dadas as notas das 3 provas e produzir uma saída com a média e a situação do aluno de acordo com o seguinte critério: <br /> média >= 7, aprovado; 5 < média < 7, recuperação; média < 5, reprovado.</h3>
+
+        <form id="form2">
+            <p>Digite a 1ª nota: <input type="text" id="nota1"></p>
+            <p>Digite a 2ª nota: <input type="text" id="nota2"></p>
+            <p>Digite a 3ª nota: <input type="text" id="nota3"></p>
+            <button class="dois" type="button" onclick="calculoMedia()">Resultado</button>
+            <input type="button" onclick="resetForm2()" value="LIMPAR"><br /><br />
+            <div id="res2"></div><div id="media"></div><div id="aprovado"></div><div id="recuperacao"></div><div id="reprovado"></div>
+        </form>
+
+        <script>
+            function calculoMedia() {
+                var nota1 = parseInt(document.getElementById('nota1').value);
+                var nota2 = parseInt(document.getElementById('nota2').value);
+                var nota3 = parseInt(document.getElementById('nota3').value);
+                var media = (nota1 + nota2 + nota3) / 3;
+                document.getElementById("res2").style.display = "inline";
+                document.getElementById("res2").innerHTML = "A média é ";
+                document.getElementById("media").style.display = "inline";
+                document.querySelector("#media").innerHTML = media.toFixed(2);
+
+                if (media >= 7) {
+                    document.getElementById("aprovado").style.display = "block";
+                    document.querySelector("#aprovado").innerHTML = "O aluno foi APROVADO :)";
+                }
+                else if (media >= 5 && media < 7) {
+                    document.getElementById("recuperacao").style.display = "block";
+                    document.querySelector("#recuperacao").innerHTML = "O aluno está de RECUPERAÇÃO :/";
+                }
+                else {
+                    document.getElementById("reprovado").style.display = "block";
+                    document.querySelector("#reprovado").innerHTML = "O aluno foi REPROVADO :(";
+                }
+            }
+
+            function resetForm2() {
+                document.getElementById("form2").reset();
+                document.getElementById("res2").style.display = "none";
+                document.getElementById("media").style.display = "none";
+                document.getElementById("aprovado").style.display = "none";
+                document.getElementById("recuperacao").style.display = "none";
+                document.getElementById("reprovado").style.display = "none";
+            }
+        </script>
+
+        <!-- QUESTÃO 3 -->
+        <h3 class="tres">3. Calcular a quantidade dinheiro gasta por um fumante. Dados: o número de anos que ele fuma, o no de cigarros fumados por dia e o preço de uma carteira.</h3>
+
+        <form id="form3">
+            <p>Digite o número de anos: <input type="text" id="nanos"></p>
+            <p>Digite o número de cigarros fumados por dia: <input type="text" id="ncigarros"></p>
+            <p>Digite o preço da carteira: <input type="text" id="preco"></p>
+            <button class="tres" type="button" onclick="calculoCigarros()">Resultado</button>
+            <input type="button" onclick="resetForm3()" value="LIMPAR"><br /><br />
+            <div id="res3"></div><div id="totalpreco"></div>
+        </form>
+
+        <script>
+            function calculoCigarros() {
+                var anos = parseInt(document.getElementById('nanos').value);
+                var cigarros = parseInt(document.getElementById('ncigarros').value);
+                var carteira = parseInt(document.getElementById('preco').value);
+                var totalcigarros = (cigarros * 365) * anos;
+                var totalcarteira = totalcigarros / 20;
+                var totalpreco = totalcarteira * carteira;
+                document.getElementById("res3").style.display = "inline";
+                document.getElementById("res3").innerHTML = "A quantidade gasta é R$";
+                document.getElementById("totalpreco").style.display = "inline";
+                document.querySelector("#totalpreco").innerHTML = totalpreco;
+            }
+
+            function resetForm3() {
+                document.getElementById("form3").reset();
+                document.getElementById("res3").style.display = "none";
+                document.getElementById("totalpreco").style.display = "none";
+            }
+        </script>
+
+        <!-- QUESTÃO 4 -->
+        <h3 class="quatro">4. Ler dois números inteiros, x e y, e imprimir o quociente e o resto da divisão inteira entre eles.</h3>
+
+        <form id="form4">
+            <p>Digite o 1º número: <input type="text" id="n1"></p>
+            <p>Digite o 2º número: <input type="text" id="n2"></p>
+            <button class="quatro" type="button" onclick="calculoQuociente()">Resultado</button>
+            <input type="button" onclick="resetForm4()" value="LIMPAR"><br /><br />
+            <div id="res4"></div><div id="quociente"></div><div id="res4-1"></div><div id="resto"></div>
+        </form>
+
+        <script>
+            function calculoQuociente() {
+                var n1 = parseInt(document.getElementById('n1').value);
+                var n2 = parseInt(document.getElementById('n2').value);
+                var quociente = n1 / n2;
+                var resto = n1 % n2;
+                document.getElementById("res4").style.display = "inline";
+                document.getElementById("res4").innerHTML = "O quociente é ";
+                document.getElementById("quociente").style.display = "inline";
+                document.querySelector("#quociente").innerHTML = Math.floor(quociente);
+                document.getElementById("res4-1").style.display = "inline";
+                document.getElementById("res4-1").innerHTML = " e o resto é ";
+                document.getElementById("resto").style.display = "inline";
+                document.querySelector("#resto").innerHTML = resto;
+            }
+
+            function resetForm4() {
+                document.getElementById("form4").reset();
+                document.getElementById("res4").style.display = "none";
+                document.getElementById("quociente").style.display = "none";
+                document.getElementById("res4-1").style.display = "none";
+                document.getElementById("resto").style.display = "none";
+            }
+        </script>
+
+        <!-- QUESTÃO 5 -->
+        <h3 class="cinco">5. Que informe a área e o volume de um cilindro.</h3>
+
+        <form id="form5">
+            <p>Digite o raio: <input type="text" id="raio"></p>
+            <p>Digite a altura: <input type="text" id="altura"></p>
+            <button class="cinco" type="button" onclick="calculoCilindro()">Resultado</button>
+            <input type="button" onclick="resetForm5()" value="LIMPAR"><br /><br />
+            <div id="res5"></div><div id="area"></div><div id="res5-1"></div><div id="volume"></div><div id="res5-2"></div>
+        </form>
+
+        <script>
+            function calculoCilindro() {
+                var raio = parseInt(document.getElementById('raio').value);
+                var altura = parseInt(document.getElementById('altura').value);
+                var areatotal = ( 2 * 3.14 * (Math.pow(raio,2)) ) + ( 2 * (3.14 * raio * altura) );
+                var volume = 3.14 * (Math.pow(raio,2)) * altura;
+
+                document.getElementById("res5").style.display = "inline";
+                document.getElementById("res5").innerHTML = "A área é ";
+                document.getElementById("area").style.display = "inline";
+                document.querySelector("#area").innerHTML = areatotal;
+                document.getElementById("res5-1").style.display = "inline";
+                document.getElementById("res5-1").innerHTML = " cm&#178; e o volume é ";
+                document.getElementById("volume").style.display = "inline";
+                document.querySelector("#volume").innerHTML = volume;
+                document.getElementById("res5-2").style.display = "inline";
+                document.getElementById("res5-2").innerHTML = " cm&#179;";
+            }
+
+            function resetForm5() {
+                document.getElementById("form5").reset();
+                document.getElementById("res5").style.display = "none";
+                document.getElementById("area").style.display = "none";
+                document.getElementById("res5-1").style.display = "none";
+                document.getElementById("volume").style.display = "none";
+                document.getElementById("res5-2").style.display = "none";
+            }
+        </script>
+
+        <!-- QUESTÃO 6 -->
+        <h3 class="seis">6. Para ler dois valores reais do teclado, calcular e imprimir na tela: a) A soma destes valores b) O produto deles c) O quociente entre eles</h3>
+
+        <form id="form6">
+            <p>Digite o 1º número: <input type="text" id="num1"></p>
+            <p>Digite o 2º número: <input type="text" id="num2"></p>
+            <button class="seis" type="button" onclick="calculoSomaProdutoDivisao()">Resultado</button>
+            <input type="button" onclick="resetForm6()" value="LIMPAR"><br /><br />
+            <div id="res6"></div><div id="soma"></div><div id="res6-1"></div><div id="produto"></div><div id="res6-2"></div><div id="divisao"></div>
+        </form>
+
+        <script>
+            function calculoSomaProdutoDivisao() {
+                var num1 = parseInt(document.getElementById('num1').value);
+                var num2 = parseInt(document.getElementById('num2').value);
+                var soma = num1 + num2;
+                var produto = num1 * num2;
+                var divisao = num1 / num2;
+                document.getElementById("res6").style.display = "inline";
+                document.getElementById("res6").innerHTML = "A soma é ";
+                document.getElementById("soma").style.display = "inline";
+                document.querySelector("#soma").innerHTML = soma;
+                document.getElementById("res6-1").style.display = "inline";
+                document.getElementById("res6-1").innerHTML = ", o produto é ";
+                document.getElementById("produto").style.display = "inline";
+                document.querySelector("#produto").innerHTML = produto;
+                document.getElementById("res6-2").style.display = "inline";
+                document.getElementById("res6-2").innerHTML = " e o quociente é ";
+                document.getElementById("divisao").style.display = "inline";
+                document.querySelector("#divisao").innerHTML = Math.floor(divisao);
+            }
+
+            function resetForm6() {
+                document.getElementById("form6").reset();
+                document.getElementById("res6").style.display = "none";
+                document.getElementById("soma").style.display = "none";
+                document.getElementById("res6-1").style.display = "none";
+                document.getElementById("produto").style.display = "none";
+                document.getElementById("res6-2").style.display = "none";
+                document.getElementById("divisao").style.display = "none";
+            }
+        </script>
+
+        <!-- QUESTÃO 7 -->
+        <h3 class="sete">7. Para ler 3 números reais do teclado e verificar se o primeiro é maior que a soma dos outros dois.</h3>
+
+        <form id="form7">
+            <p>Digite o 1º número: <input type="text" id="numero1"></p>
+            <p>Digite o 2º número: <input type="text" id="numero2"></p>
+            <p>Digite o 3º número: <input type="text" id="numero3"></p>
+            <button class="sete" type="button" onclick="calculoSomaMaior()">Resultado</button>
+            <input type="button" onclick="resetForm7()" value="LIMPAR"><br /><br />
+            <div id="res7"></div>
+        </form>
+
+        <script>
+            function calculoSomaMaior() {
+                var numero1 = parseInt(document.getElementById('numero1').value);
+                var numero2 = parseInt(document.getElementById('numero2').value);
+                var numero3 = parseInt(document.getElementById('numero3').value);
+                var soma2e3 = numero2 + numero3;
+
+                if (numero1 > soma2e3) {
+                    document.getElementById("res7").style.display = "inline";
+                    document.getElementById("res7").innerHTML = "O primeiro número é MAIOR que a soma do 2º e do 3º números.";
+                } else {
+                    document.getElementById("res7").style.display = "inline";
+                    document.getElementById("res7").innerHTML = "O primeiro número é MENOR que a soma do 2º e do 3º números.";   
+                }
+            }
+
+            function resetForm7() {
+                document.getElementById("form7").reset();
+                document.getElementById("res7").style.display = "none";
+            }
+        </script>
+
+        <!-- QUESTÃO 08 -->
+        <h3 class="oito">8. Leia a razão de uma PA (Progressão Aritmética) e o seu primeiro e último termos e informe a soma dos elementos dessa PA.</h3>
+
+        <form id="form8">
+            <p>Digite a razão: <input type="text" id="razao"></p>
+            <p>Digite o primeiro termo: <input type="text" id="primeiro"></p>
+            <p>Digite o último termo: <input type="text" id="ultimo"></p>
+            <button class="oito" type="button" onclick="verificarpa()">Resultado</button>
+            <input type="button" onclick="resetForm8()" value="LIMPAR"><br /><br />
+            <div id="res8"></div><div id="somapa"></div>
+        </form>
+
+        <script>
+            function verificarpa() {
+                var primeiro = parseInt(document.querySelector("#primeiro").value);
+                var ultimo = parseInt(document.querySelector("#ultimo").value);
+                var razao = parseInt(document.querySelector("#razao").value);
+                var n = ((ultimo - primeiro + razao)/razao);
+                var somapa = (primeiro + ultimo) * n / 2;
+
+                document.getElementById("res8").style.display = "inline";
+                document.getElementById("res8").innerHTML = "A soma da PA é ";
+                document.getElementById("somapa").style.display = "inline";
+                document.querySelector("#somapa").innerHTML = somapa;
+            }
+
+            function resetForm8() {
+                document.getElementById("form8").reset();
+                document.getElementById("res8").style.display = "none";
+                document.getElementById("somapa").style.display = "none";
+            }
+        </script>
+
+        <!-- QUESTÃO 09 -->
+        <h3 class="nove">9. Ler um nome do teclado e ver se é igual ao seu nome. Imprimir conforme o caso: “NOME CORRETO” ou “NOME INCORRETO”.</h3>
+
+        <form id="form9">
+            <p>Qual o meu nome? <input type="text" id="nome"></p>
+            <button class="nove" type="button" onclick="verificarNome()">Resultado</button>
+            <input type="button" onclick="resetForm9()" value="LIMPAR"><br /><br />
+            <div id="res9"></div>
+        </form>
+
+        <script>
+            function verificarNome() {
+                var nome = document.querySelector("#nome").value;
+
+                if (nome == 'Stella' || nome == 'stella' || nome == 'STELLA') {
+                    document.getElementById("res9").style.display = "inline";
+                    document.getElementById("res9").innerHTML = "Nome CORRETO! :)";
+                } else {
+                    document.getElementById("res9").style.display = "inline";
+                    document.getElementById("res9").innerHTML = "Nome INCORRETO! :(";
+                }
+            }
+
+            function resetForm9() {
+                document.getElementById("form9").reset();
+                document.getElementById("res9").style.display = "none";
+            }
+        </script>
+
+        <!-- QUESTÃO 10 -->
+        <h3 class="dez">10. Ler 2 números inteiros do teclado (A e B), verificar e imprimir qual deles é o maior, ou a mensagem “A=B” caso sejam iguais.</h3>
+
+        <form id="form10">
+            <p>Digite o 1º número (A): <input type="text" id="number1"></p>
+            <p>Digite o 2º número (B): <input type="text" id="number2"></p>
+            <button class="dez" type="button" onclick="verificarNum()">Resultado</button>
+            <input type="button" onclick="resetForm10()" value="LIMPAR"><br /><br />
+            <div id="res10"></div>
+        </form>
+
+        <script>
+            function verificarNum() {
+                var number1 = parseInt(document.getElementById('number1').value);
+                var number2 = parseInt(document.getElementById('number2').value);
+
+                if (number1 > number2) {
+                    document.getElementById("res10").style.display = "inline";
+                    document.getElementById("res10").innerHTML = "O primeiro número é MAIOR que o segundo.";
+                } else if (number1 < number2) {
+                    document.getElementById("res10").style.display = "inline";
+                    document.getElementById("res10").innerHTML = "O primeiro número é MENOR que o segundo.";
+                } else {
+                    document.getElementById("res10").style.display = "inline";
+                    document.getElementById("res10").innerHTML = "O primeiro número é IGUAL ao segundo (A = B).";
+                }
+            }
+
+            function resetForm10() {
+                document.getElementById("form10").reset();
+                document.getElementById("res10").style.display = "none";
+            }
+        </script>
+
+    </body>
+</html>
