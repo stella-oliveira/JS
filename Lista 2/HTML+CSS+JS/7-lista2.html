@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 7 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa lê o valor do raio de um círculo, e depois mostra o valor da área deste círculo com quatro casas decimais.</h3>
+
+		<div id="box">
+			<input type="number" id="raio" placeholder="Valor do raio do círculo">
+            <br /><br />
+            <button type="button" onclick="sete()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function sete(){
+				var raio = parseInt(document.getElementById('raio').value);
+				var area = 3.14159 * raio * raio;
+
+				document.querySelector("#resultado").innerHTML = "A área é " + area.toFixed(4);
+			}
+		</script>
+	</body>
+</html>

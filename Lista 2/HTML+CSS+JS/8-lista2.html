@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 8 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Com base na tabela de preços a seguir, programa lê o código de um item e a quantidade deste item. A seguir, calcula e mostra o valor da conta a pagar.</h3>
+			<img src="./tabela8.png" />
+
+		<div id="box">
+			<input type="number" id="codigo" placeholder="Código">
+            <input type="number" id="quantidade" placeholder="Quantidade">
+            <br /><br />
+            <button type="button" onclick="oito()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function oito(){
+				var codigo = parseInt(document.getElementById('codigo').value);
+				var quantidade = parseInt(document.getElementById('quantidade').value);
+
+				if (codigo == 1) {
+					var total = quantidade * 4;
+				} else if (codigo == 2) {
+					var total = quantidade * 4.50;
+				} else if (codigo == 3) {
+					var total = quantidade * 5;
+				} else if (codigo == 4) {
+					var total = quantidade * 2;
+				} else if (codigo == 5) {
+					var total = quantidade * 1.50;
+				} else {
+					document.querySelector("#resultado").innerHTML = "Escolha um código válido.";
+				}
+				document.querySelector("#resultado").innerHTML = "Valor a pagar: R$ " + total.toFixed(2);
+			}
+		</script>
+	</body>
+</html>

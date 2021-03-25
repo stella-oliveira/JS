@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 18 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa repete a leitura de uma senha até que ela seja válida. Para cada leitura de senha incorreta informada, escreve a mensagem "Senha inválida". Quando a senha é informada corretamente, imprime a mensagem "Acesso permitido" e o algoritmo é encerrado.</h3>
+
+		<div id="box">
+			<input type="number" id="senha" placeholder="Qual a senha?">
+            <br /><br />
+            <button type="button" onclick="dezoito()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function dezoito(){
+				var senha = parseInt(document.getElementById('senha').value);			
+				
+				if (senha == 2002) {
+					document.querySelector("#resultado").innerHTML = "Acesso permitido :)";
+				} else {
+					document.querySelector("#resultado").innerHTML = "Senha inválida :( Tente novamente!";
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 16 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa recebe a idade de uma pessoa e mostra mensagem informando “maior de idade”, “menor de idade” ou "idoso(a)", considerando a idade a partir de 18 anos como maior de idade.</h3>
+
+		<div id="box">
+			<input type="number" id="idade" placeholder="Qual sua idade?">
+            <br /><br />
+            <button type="button" onclick="dezesseis()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function dezesseis(){
+				var idade = parseInt(document.getElementById('idade').value);
+
+				if (idade < 18) {
+					document.querySelector("#resultado").innerHTML = "Menor de idade!";
+				} else if (idade >= 18 && idade <= 65) {
+					document.querySelector("#resultado").innerHTML = "Maior de idade!";
+				} else {
+					document.querySelector("#resultado").innerHTML = "Idoso!";
+				}
+			}
+		</script>
+	</body>
+</html>

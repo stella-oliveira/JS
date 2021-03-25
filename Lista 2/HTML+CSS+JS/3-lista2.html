@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 3 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa recebe o peso de uma pessoa em quilos, calcula e mostra esse peso em grama.</h3>
+
+		<div id="box">
+			<input type="number" id="peso" placeholder="Qual o seu peso (em kg)?">
+            <br /><br />
+            <button type="button" onclick="tres()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function tres(){
+				var peso = parseFloat(document.getElementById('peso').value);
+				var calculo = peso * 1000;
+
+				document.querySelector("#resultado").innerHTML = "Peso em gramas: " + calculo;
+			}
+		</script>
+	</body>
+</html>

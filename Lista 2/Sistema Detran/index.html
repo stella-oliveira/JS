@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade Detran</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<div id="box">
+			<h1>VERIFICADOR DE MULTAS</h1>
+			<input type="number" id="velocidadeMax" placeholder="Velocidade máxima permitida na via">
+            <input type="number" id="velocidadeMotorista" placeholder="Velocidade do veículo">
+            <input type="text" id="nomeCondutor" placeholder="Nome do condutor">
+            <input type="text" id="habilitacao" placeholder="Número da habilitação do condutor">
+            <div class="buttons">
+            	<button class="buttonResultado" type="button" onclick="velocidade()">Resultado</button>
+            	<button id="buttonPDF" type="button" onclick="CriaPDF()">Gerar PDF</button>
+            </div>
+            <div id="resultado"></div><div id="valor"></div><div id="pontos"></div>
+		</div>
+
+		<script>
+            function velocidade() {
+                var velocidadeMax = parseInt(document.getElementById('velocidadeMax').value);
+                var velocidadeMotorista = parseInt(document.getElementById('velocidadeMotorista').value);
+
+                if (velocidadeMotorista < velocidadeMax) {
+                	document.getElementById("resultado").style.backgroundColor = "rgba(27,197,0,0.6)";
+                    document.querySelector("#resultado").innerHTML = "Velocidade permitida. Dirija com segurança!";
+                    return "Velocidade permitida. Dirija com segurança!";
+                } else if ( velocidadeMotorista <= (velocidadeMax + 7) ) {
+                	document.getElementById("resultado").style.backgroundColor = "rgba(253,150,46,0.6)";
+                    document.querySelector("#resultado").innerHTML = "Advertência! Velocidade com margem de até 7 km/h acima do permitido.";
+                    return "Advertência! Velocidade com margem de até 7 km/h acima do permitido.";
+                } else if ( (velocidadeMotorista >= velocidadeMax) && (velocidadeMotorista <= (velocidadeMax * 1.2)) ) {
+                	document.getElementById("resultado").style.backgroundColor = "rgba(253,253,46,0.6)";
+                	document.getElementById("valor").style.backgroundColor = "black";
+                	document.getElementById("valor").style.color = "rgba(253,253,46,1)";
+                    document.querySelector("#resultado").innerHTML = "Autuado! Infração grave.";
+                    document.querySelector("#valor").innerHTML = "Valor da multa: R$ 130,16.";
+                    document.querySelector("#pontos").innerHTML = "4 pontos na CNH.";
+                    return "Autuado! Infração grave. " + "R$ 130,16 de multa e 4 pontos na CNH.";
+                } else if ( (velocidadeMotorista > (velocidadeMax * 1.2)) && (velocidadeMotorista <= (velocidadeMax * 1.5)) ) {
+                	document.getElementById("resultado").style.backgroundColor = "rgba(193,66,66,0.7)";
+                	document.getElementById("valor").style.backgroundColor = "black";
+                	document.getElementById("valor").style.color = "rgba(193,66,66,1)";
+                    document.querySelector("#resultado").innerHTML = "Autuado! Infração gravíssima.";
+                    document.querySelector("#valor").innerHTML = "Valor da multa: R$ 195,23.";
+                    document.querySelector("#pontos").innerHTML = "5 pontos na CNH.";
+                    return "Autuado! Infração gravíssima. " + "R$ 195,23 de multa e 5 pontos na CNH.";
+                } else {
+                	document.getElementById("resultado").style.backgroundColor = "rgba(193,66,66,1)";
+                	document.getElementById("valor").style.backgroundColor = "black";
+                	document.getElementById("valor").style.color = "rgba(193,66,66,1)";
+                    document.querySelector("#resultado").innerHTML = "Autuado! Infração gravíssima. Penalidade de suspensão do direito de dirigir.";
+                    document.querySelector("#valor").innerHTML = "Valor da multa: R$ 880,41.";
+                    document.querySelector("#pontos").innerHTML = "7 pontos na CNH.";
+                    return "Autuado! Infração gravíssima. Penalidade de suspensão do direito de dirigir. " + "R$ 880,41 de multa e 7 pontos na CNH.";
+                }
+            }
+
+            // GERAR PDF
+            function CriaPDF() {
+		        var velocidadeMax = parseInt(document.getElementById('velocidadeMax').value);
+		        var velocidadeMotorista = parseInt(document.getElementById('velocidadeMotorista').value);
+		        var nomeCondutor = document.getElementById('nomeCondutor').value;
+		        document.getElementById('nomeCondutor').innerHTML = nomeCondutor;
+		        var habilitacao = parseInt(document.getElementById('habilitacao').value);
+		        var resultado = velocidade();
+
+		        var style = "<style>";
+		        style = style + "body { font: 20px Arial; text-align: justify; width: 95%; }";
+		        style = style + "p { font-weight: bold; }";
+		        style = style + "</style>";
+
+		        // CRIA UM OBJETO WINDOW
+		        var win = window.open('', '', 'height=700,width=700');
+		        win.document.write('<html><head>');
+		        win.document.write('<title>Detran</title>');   // <title> CABEÇALHO DO PDF.
+		        win.document.write(style);                     // INCLUI UM ESTILO NA TAB HEAD
+		        win.document.write('</head>');
+		        win.document.write('<body>');
+		        win.document.write('<p>Velocidade permitida:</p> ');
+		        win.document.write(velocidadeMax);
+		        win.document.write(' km/h');
+		        win.document.write('<p>Velocidade do veículo:</p> ');
+		        win.document.write(velocidadeMotorista);
+		        win.document.write(' km/h');
+		        win.document.write('<p>Nome do condutor:</p> ');
+		        win.document.write(nomeCondutor);
+		        win.document.write('<p>Número da CNH do condutor:</p> ');
+		        win.document.write(habilitacao);
+		        win.document.write('<p>Status:</p> ');
+		        win.document.write(resultado);
+		        win.document.write('</body></html>');
+		        win.document.close(); 	                       // FECHA A JANELA
+		        win.print();                                   // IMPRIME O CONTEUDO
+		    }
+        </script>
+	</body>
+</html>

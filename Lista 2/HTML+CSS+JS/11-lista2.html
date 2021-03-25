@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 11 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Para doar sangue é necessário ter entre 18 e 67 anos. Programa pergunta a idade de uma pessoa e diz se ela pode doar sangue ou não.</h3>
+
+		<div id="box">
+			<input type="number" id="idade" placeholder="Qual sua idade?">
+            <br /><br />
+            <button type="button" onclick="onze()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+		
+		</main>
+
+		<script type="text/javascript">
+			function onze(){
+				var idade = parseInt(document.getElementById('idade').value);
+
+				if (idade < 18 || idade > 67) {
+					document.querySelector("#resultado").innerHTML = "Você não pode doar sangue :(";
+				} else {
+					document.querySelector("#resultado").innerHTML = "Você pode doar sangue! :)";
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 15 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa classifica nadador de acordo com a idade nas seguintes categorias: Infantil A = 5 - 7 anos, Infantil B = 8 - 10 anos, juvenil A = 11- 13 anos juvenil B = 14 - 17 anos e Sênior = 18 - 25 anos. Apresenta mensagem “idade fora da faixa etária” quando for outro ano não contemplado.</h3>
+
+		<div id="box">
+			<input type="number" id="idade" placeholder="Qual sua idade?">
+            <br /><br />
+            <button type="button" onclick="quinze()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function quinze(){
+				var idade = parseInt(document.getElementById('idade').value);
+
+				if (idade >= 5 && idade <= 7) {
+					document.querySelector("#resultado").innerHTML = "Categoria Infantil A.";
+				} else if (idade >= 8 && idade <= 10) {
+					document.querySelector("#resultado").innerHTML = "Categoria Infantil B.";
+				} else if (idade >= 11 && idade <= 13) {
+					document.querySelector("#resultado").innerHTML = "Categoria Juvenil A.";
+				} else if (idade >= 14 && idade <= 17) {
+					document.querySelector("#resultado").innerHTML = "Categoria Juvenil B.";
+				} else if (idade >= 18 && idade <= 25) {
+					document.querySelector("#resultado").innerHTML = "Categoria Sênior.";
+				} else {
+					document.querySelector("#resultado").innerHTML = "Idade fora da faixa etária.";
+				}
+			}
+		</script>
+	</body>
+</html>

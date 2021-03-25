@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 2 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa recebe dois números, calcula e mostra a divisão do primeiro número pelo segundo (o segundo número não pode ser zero).</h3>
+
+		<div id="box">
+			<input type="number" id="num1" placeholder="Primeiro número">
+			<input type="number" id="num2" placeholder="Segundo número">
+            <br /><br />
+            <button type="button" onclick="dois()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function dois(){
+				var num1 = parseFloat(document.getElementById('num1').value);
+				var num2 = parseFloat(document.getElementById('num2').value);
+
+				if (num2 != 0) {
+					total = num1/num2;
+					document.querySelector("#resultado").innerHTML = "Resultado: " + total.toFixed(2);
+				} else {
+					total = (document.querySelector("#resultado").innerHTML = "Não é possível dividir por zero");
+				}
+			}
+		</script>
+	</body>
+</html>

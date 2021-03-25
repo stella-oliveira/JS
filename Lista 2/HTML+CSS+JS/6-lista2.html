@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 6 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa lê o código, quantidade e valor unitário de uma peça 1, e o código, quantidade e valor unitário de uma peça 2. Calcula e mostra o valor a ser pago.</h3>
+
+		<div id="box">
+			<p>Peça 1:
+				<input type="number" id="codigo1" placeholder="Código">
+            	<input type="number" id="quantidade1" placeholder="Quantidade">
+            	<input type="number" id="valor1" placeholder="Valor">
+            </p>
+
+            <p>Peça 2:
+				<input type="number" id="codigo2" placeholder="Código">
+	            <input type="number" id="quantidade2" placeholder="Quantidade">
+	            <input type="number" id="valor2" placeholder="Valor">
+        	</p>
+            <button type="button" onclick="seis()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function seis(){
+				var quantidade1 = parseInt(document.getElementById('quantidade1').value);
+				var valor1 = parseFloat(document.getElementById('valor1').value);
+				var quantidade2 = parseInt(document.getElementById('quantidade2').value);
+				var valor2 = parseFloat(document.getElementById('valor2').value);
+				var total = (quantidade1 * valor1) + (quantidade2 * valor2);
+
+				document.querySelector("#resultado").innerHTML = "Valor a pagar: R$ " + total.toFixed(2);
+			}
+		</script>
+	</body>
+</html>

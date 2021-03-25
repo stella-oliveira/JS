@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 9 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa recebe um número inteiro e diz se é par ou ímpar.</h3>
+
+		<div id="box">
+			<input type="number" id="num" placeholder="Digite um número">
+            <br /><br />
+            <button type="button" onclick="nove()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function nove(){
+				var num = parseInt(document.getElementById('num').value);
+
+				if (num % 2 == 0) {
+					document.querySelector("#resultado").innerHTML = "Número par";
+				} else {
+					document.querySelector("#resultado").innerHTML = "Número ímpar";
+				}
+			}
+		</script>
+	</body>
+</html>

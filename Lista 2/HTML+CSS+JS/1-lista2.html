@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 1 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>O restaurante a quilo Bem-Bão cobra R$12,00 por cada quilo de refeição. Programa lê o peso do prato montado pelo cliente (em quilos) e imprime o valor a pagar.</h3>
+
+		<div id="box">
+			<input type="number" id="refeicao" placeholder="Peso do prato (em kg)">
+            <br /><br />
+            <button type="button" onclick="um()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function um(){
+				var refeicao = parseFloat(document.getElementById('refeicao').value);
+				total = refeicao * 12;
+				document.querySelector("#resultado").innerHTML = "Valor a pagar: R$ " + total.toFixed(2);
+			}
+		</script>
+	</body>
+</html>

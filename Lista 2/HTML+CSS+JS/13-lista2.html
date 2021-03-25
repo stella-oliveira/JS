@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 13 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa pede um número ao usuário e armazena ele na variável x. Depois pede outro número e armazena na variável y. Mostra os números e em seguida troca os valores das variáveis.</h3>
+
+		<div id="box">
+			<input type="number" id="x" placeholder="Valor de X">
+			<input type="number" id="y" placeholder="Valor de Y">
+            <br /><br />
+            <button type="button" onclick="treze()">Resultado</button>
+            <h3><div id="resultado"></div></h3><h3><div id="resultado2"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function treze(){
+				var x = parseFloat(document.getElementById('x').value);
+				var y = parseFloat(document.getElementById('y').value);
+
+				document.querySelector("#resultado").innerHTML = "X = " + x + " e Y = " + y;
+
+				var aux = 0;
+				aux = x;
+				x = y;
+				y = aux;
+				
+				document.querySelector("#resultado2").innerHTML = "Após troca: X = " + x + " e Y = " + y;
+			}
+		</script>
+	</body>
+</html>

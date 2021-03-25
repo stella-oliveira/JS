@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 17 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa lê o nome e o sexo de uma pessoa e informa o nome e se ela é homem ou mulher.</h3>
+
+		<div id="box">
+			<input type="text" id="nome" placeholder="Qual seu nome?">
+			<input type="text" id="sexo" placeholder="Qual seu sexo?">
+            <br /><br />
+            <button type="button" onclick="dezessete()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function dezessete(){
+				var nome = document.querySelector("#nome").value;
+				var sexo = document.querySelector("#sexo").value;
+				var resultado;
+				sexo = sexo.toLowerCase();
+
+				if (sexo == 'f' || sexo == 'feminino' || sexo == 'fem') {
+					resultado = "mulher";
+				} else {
+					resultado = "homem";
+				}
+
+				document.querySelector("#resultado").innerHTML = "Nome: " + nome + " (" + resultado + ")";	
+			}
+		</script>
+	</body>
+</html>

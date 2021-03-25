@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Atividade 4 - Lista 2</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<main>
+			<h3>Programa recebe um número e diz se este número está no intervalo entre 100 e 200. </h3>
+
+		<div id="box">
+			<input type="number" id="num" placeholder="Digite um número">
+            <br /><br />
+            <button type="button" onclick="quatro()">Resultado</button>
+            <h3><div id="resultado"></div></h3>
+		</div>
+
+		</main>
+
+		<script type="text/javascript">
+			function quatro(){
+				var num = parseInt(document.getElementById('num').value);
+
+				if (num >= 100 && num <= 200) {
+					document.querySelector("#resultado").innerHTML = "Está no intervalo!";
+				} else {
+					document.querySelector("#resultado").innerHTML = "Não está no intervalo!";
+				}
+			}
+		</script>
+	</body>
+</html>
